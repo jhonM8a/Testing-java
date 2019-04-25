@@ -3,6 +3,9 @@
  */
 package com.testing.javatest.util;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -47,4 +50,25 @@ public class StringUtilTest {
 		String result = StringUtil.repeat("hola", -1);
 
 	}	
+	
+	@Test
+	public void string_is_null() {
+		
+		assertTrue(StringUtil.isEmpty(null));
+	}
+	
+	@Test
+	public void string_is_empty_and_not_null() {
+		assertTrue(StringUtil.isEmpty(""));
+	}
+	
+	@Test
+	public void string_is_not_empty_with_spacr_and_not_null() {
+		assertTrue(StringUtil.isEmpty(" "));
+	}
+	@Test
+	public void string_is_not_empty() {
+		assertFalse(StringUtil.isEmpty("No Vacio"));
+	}
 }
+
