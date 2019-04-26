@@ -6,6 +6,7 @@ import java.util.List;
 public class PriceCalculator {
 
 	private List<Double> prices = new ArrayList<>();
+	private double discount = 0;
 
 	public double getTotal() {
 
@@ -14,7 +15,7 @@ public class PriceCalculator {
 			result += price;
 		}
 
-		return result;
+		return (result*((100-discount)/100));
 	}
 
 	public void addPrice(double price) {
@@ -23,7 +24,8 @@ public class PriceCalculator {
 	}
 
 	public void setDiscount(double discount) {
-		// TODO Auto-generated method stub
+		
+		this.discount = discount;
 		
 	}
 }
