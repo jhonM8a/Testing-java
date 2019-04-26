@@ -21,4 +21,9 @@ public class PriceCalculator {
 		prices.add(price);
 
 	}
+
+	public void setDiscount(double discount) {
+		// TODO Auto-generated method stub
+		
+	}
 }
