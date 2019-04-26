@@ -1,15 +1,24 @@
 package com.testing.javatest.discounts;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PriceCalculator {
 
-	
+	private List<Double> prices = new ArrayList<>();
+
 	public double getTotal() {
-		return 0;
+
+		double result = 0;
+		for (Double price : prices) {
+			result += price;
+		}
+
+		return result;
 	}
 
 	public void addPrice(double price) {
-		// TODO Auto-generated method stub
-		
+		prices.add(price);
+
 	}
 }
-
