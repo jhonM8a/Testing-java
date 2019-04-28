@@ -29,8 +29,9 @@ public class MovieRepositoryJdbc implements MovieRepository {
 
 	@Override
 	public Movie finById(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Object[] args = {id};
+		return jdbcTemplate.queryForObject("SELECT * FROM MOVIES WHERE ID = ?", args, movieMapper);
 	}
 
 	@Override
@@ -42,7 +43,8 @@ public class MovieRepositoryJdbc implements MovieRepository {
 
 	@Override
 	public void saveOrUpdate(Movie movie) {
-		// TODO Auto-generated method stub
+		jdbcTemplate.update("insert into movies (name, minutes, genre) values (?,?,?)", movie.getName(),
+				movie.getMinutes(), movie.getGenre().toString());
 		
 	}
 	
