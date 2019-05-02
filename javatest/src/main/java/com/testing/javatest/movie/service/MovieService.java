@@ -39,8 +39,15 @@ public class MovieService {
 
 
 	public Collection<Movie> findMoviesByLength(int length) {
-		// TODO Auto-generated method stub
 		return  movieRepository.findAll().stream().filter(movie -> movie.getMinutes() <= length)
+				.collect(Collectors.toList());
+	}
+
+
+	public Collection<Movie> findByName(String nameMovie) {
+		
+		
+		return movieRepository.findAll().stream().filter(movie -> movie.getName().toLowerCase().contains(nameMovie.toLowerCase()))
 				.collect(Collectors.toList());
 	}
 
