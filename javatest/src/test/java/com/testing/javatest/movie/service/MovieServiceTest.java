@@ -28,7 +28,8 @@ public class MovieServiceTest {
 				.thenReturn(Arrays.asList(new Movie(1, "Pelicula 1", 120, Genre.ACTION),
 						new Movie(2, "Pelicula 1", 111, Genre.THILLER), new Movie(3, "Pelicula 1", 126, Genre.COMEDY),
 						new Movie(4, "Pelicula 1", 123, Genre.THILLER), new Movie(5, "Pelicula 1", 140, Genre.HORROR),
-						new Movie(6, "Pelicula 1", 100, Genre.COMEDY), new Movie(7, "Pelicula 1", 180, Genre.ACTION)));
+						new Movie(6, "Pelicula 1", 100, Genre.COMEDY), new Movie(7, "Pelicula 1", 180, Genre.ACTION),
+						new Movie(8, "Super Man", 125, Genre.ACTION), new Movie(9, "Super 8", 180, Genre.ACTION)));
 
 		movieService = new MovieService(movieRepository);
 	}
@@ -46,6 +47,13 @@ public class MovieServiceTest {
 		Collection<Movie> movies = movieService.findMoviesByLength(120);
 
 		assertThat(getMoviesIds(movies), is(Arrays.asList(1, 2, 6)));
+	}
+	@Test
+	public void return_movies_by_name(){
+		
+		Collection<Movie> movies = movieService.findByName("Super");
+		
+		assertThat(getMoviesIds(movies), is(Arrays.asList(8,9)));
 	}
 
 	public List<Integer> getMoviesIds(Collection<Movie> movies) {
